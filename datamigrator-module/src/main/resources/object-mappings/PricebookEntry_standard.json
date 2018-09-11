@@ -1,0 +1,26 @@
+[
+  {
+    "parent": "PricebookEntry",
+    "where": " IsActive = true And Pricebook2.IsStandard = true AND Pricebook2Id != null ",
+    "unmappedFields": ["ProductCode", "Name"],
+    "lookups": [
+      {
+        "lookupMappedField": "Pricebook2Id",
+        "lookupObject": "Pricebook2",
+        "where":" IsStandard = true ",
+        "keys": [
+          "Name",
+          "IsActive",
+          "IsStandard"
+        ]
+      },
+      {
+        "lookupMappedField": "Product2Id",
+        "lookupObject": "Product2",
+        "keys": [
+          "Name"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "parent": "Account",
+    "unmappedFields": [
+      "PhotoUrl",
+      "IsPartner",
+      "IsCustomerPortal",
+      "IsPersonAccount"
+    ],
+    "childs": [
+      {
+        "parentMappedField": "AccountId",
+        "childObject": "Opportunity",
+        "unmappedFields": [
+          "IsClosed",
+          "IsWon",
+          "ForecastCategory",
+          "HasOpportunityLineItem",
+          "FiscalQuarter",
+          "FiscalYear",
+          "Fiscal",
+          "HasOpenActivity",
+          "HasOverdueTask"
+        ],
+        "sequence": 1
+      },
+      {
+        "parentMappedField": "AccountId",
+        "childObject": "Asset",
+        "sequence": 2
+      }
+    ],
+    "lookups": [
+      {
+        "lookupMappedField": "ParentId",
+        "lookupObject": "Account",
+        "keys": [
+          "Name",
+        ]
+      }
+    ]
+  }
+]

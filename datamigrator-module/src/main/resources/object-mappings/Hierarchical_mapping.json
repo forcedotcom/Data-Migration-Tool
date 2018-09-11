@@ -1,0 +1,101 @@
+[
+  {
+    "parent": "Approval_Process__c",
+    "externalIdField": "ExternalId_Key__c",
+    "refresh": true,
+    "lookups": [
+      {
+        "lookupMappedField": "Entry_Criteria__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "Entry_Criteria_Active__c",
+          "Entry_Criteria_BoolOper__c",
+          "Entry_Criteria_Field__c",
+          "Entry_Criteria_Field_Value__c",
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      },
+      {
+        "lookupMappedField": "Step_Filter__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "Step_Filter_BoolOper__c",
+          "Step_Filter_Comparison_Type__c",
+          "Step_Filter_Field__c",
+          "Step_Filter_Field_Object__c",
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      },
+      {
+        "lookupMappedField": "Step_Group__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "Step_Group_Active__c",
+          "Step_Group_Name__c",
+          "Step_Group_Rejection_Action__c",
+          "Step_Group_Seq_Number__c",
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      },
+      {
+        "lookupMappedField": "Step_Group_Action__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "Step_Group_Action_Field_Name__c",
+          "Step_Group_Action_Field_Name_Source__c",
+          "Step_Group_Action_Field_Update_Type__c",
+          "Step_Group_Action_Field_Value__c",
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      },
+      {
+        "lookupMappedField": "Step__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "Step_Active__c",
+          "Step_Approver_Type__c",
+          "Step_Assignee__c",
+          "Step_Assignee_Id__c",
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      },
+      {
+        "lookupMappedField": "Final_Approval_Action__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "Final_Action_Field_Name__c",
+          "Final_Action_Field_Name_Source__c",
+          "Final_Action_Field_Update_Type__c",
+          "Final_Action_Field_Value__c",
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      },
+      {
+        "lookupMappedField": "Group_Action__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      },
+      {
+        "lookupMappedField": "Initial_Submission_Action__c",
+        "lookupObject": "Approval_Process__c",
+        "keys": [
+          "Initial_Submission_Action_Type__c",
+          "Initial_Submission_Field_Name__c",
+          "Initial_Submission_Field_Name_Source__c",
+          "Initial_Submission_Field_Value__c",
+          "ExternalId_Key__c"
+        ],
+        "externalIdField": "ExternalId_Key__c"
+      }
+    ]
+  }
+]

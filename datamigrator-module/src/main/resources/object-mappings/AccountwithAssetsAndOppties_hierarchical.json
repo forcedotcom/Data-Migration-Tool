@@ -1,0 +1,52 @@
+[
+  {
+    "parent": "Account",
+    "ExternalId__cField": "ExternalId__c__c",
+    "where": " ExternalId__c != null",
+    "refresh": true,
+    "unmappedFields": [
+      "PhotoUrl",
+      "IsPartner",
+      "IsCustomerPortal",
+      "IsPersonAccount"
+    ],
+    "childs": [
+      {
+        "parentMappedField": "AccountId",
+        "childObject": "Opportunity",
+        "ExternalId__cField": "ExternalId__c",
+        "where": " ExternalId__c != null",
+        "unmappedFields": [
+          "IsClosed",
+          "IsWon",
+          "ForecastCategory",
+          "HasOpportunityLineItem",
+          "FiscalQuarter",
+          "FiscalYear",
+          "Fiscal",
+          "HasOpenActivity",
+          "HasOverdueTask"
+        ],
+        "sequence": 1
+      },
+      {
+        "parentMappedField": "AccountId",
+        "childObject": "Asset",
+        "ExternalId__cField": "ExternalId__c",
+        "where": " ExternalId__c != null",
+        "sequence": 2
+      }
+    ],
+    "lookups": [
+      {
+        "lookupMappedField": "ParentId",
+        "lookupObject": "Account",
+        "where": " ExternalId__c != null",
+        "keys": [
+          "Name",
+          "ExternalId__c"
+        ]
+      }
+    ]
+  }
+]

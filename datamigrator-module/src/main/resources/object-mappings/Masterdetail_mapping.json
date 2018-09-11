@@ -1,0 +1,56 @@
+[
+  {
+    "parent": "Approval_Exception__c"
+  },
+  {
+    "parent": "Approval_Process__c",
+    "unmappedFields": [],
+    "childs": [
+      {
+        "parentMappedField": "Approval_Process__c",
+        "childObject": "Approval_Step__c",
+        "sequence": 1,
+        "childs": [
+          {
+            "parentMappedField": "Approval_Step__c",
+            "childObject": "Approval_Term_Condition__c",
+            "sequence": 2,
+            "lookups": [
+              {
+                "lookupMappedField": "Approval_Process__c",
+                "lookupObject": "Approval_Process__c",
+                "keys": [
+                  "Name",
+                  "Active__c"
+                ]
+              }
+            ]
+          },
+          {
+            "parentMappedField": "Approval_Step__c",
+            "childObject": "Approval_Exception_Condition__c",
+            "sequence": 2,
+            "lookups": [
+              {
+                "lookupMappedField": "Approval_Process__c",
+                "lookupObject": "Approval_Process__c",
+                "keys": [
+                  "Name",
+                  "Active__c"
+                ]
+              },
+              {
+                "lookupMappedField": "Exception__c",
+                "lookupObject": "Approval_Exception__c",
+                "keys": [
+                  "Exception__c",
+                  "Active__c"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

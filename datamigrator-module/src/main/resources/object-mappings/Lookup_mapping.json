@@ -1,0 +1,14 @@
+[
+  {
+    "parent": "CompRateTable__c",
+    "lookups": [
+      {
+        "lookupMappedField": "AccountFunction__c",
+        "lookupObject": "Account_Function__c",
+        "keys": [
+          "Name"
+        ]
+      }
+    ]
+  }
+]
