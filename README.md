@@ -4,7 +4,7 @@
 
 Migrating data between orgs can be a daunting ask, this is specially true if you have a complex data model in the form of parent-child, hierarchical, lookups, record types etc relationships.
 
-Doing so manually is error prone, time consuming, frustrating and not an ideal approach. We wrote a Java based tool using Salesforce SOAP to migrate the data from one Salesforce Org to another Salesforce Org. Org to Org Data Loader tool lets you migrate the data from one Salesforce Org to another Salesforce Org.
+Doing so manually is error prone, time consuming, frustrating and not an ideal approach. We wrote a Java based tool using Salesforce SOAP to migrate the data from one Salesforce Org to another Salesforce Org. Org to Org Data Migration tool lets you migrate the data from one Salesforce Org to another Salesforce Org.
 
 ## Build Org To Org Data Loader
 
