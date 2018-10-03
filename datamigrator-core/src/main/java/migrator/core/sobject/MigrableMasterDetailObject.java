@@ -137,12 +137,12 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                 // Id should only be included in the mapping if it needs to be mapped to a different
                 // field ("Id": "Id_From_Na10__c")
                 Object value = null;
-                String fielValue = (String) sourcePairObj.getSourceSObject().getField(sourceField);
+                Object fielValue = sourcePairObj.getSourceSObject().getField(sourceField);
                 if (fielValue != null) {
                     if(fielValue instanceof com.sforce.ws.bind.XmlObjectWrapper) {
                     	continue;
                     }
-                    value = deserialize(fielValue, fieldToTypeMap.get(sourceField));
+                    value = deserialize((String)fielValue, fieldToTypeMap.get(sourceField));
                 }
                 insertRecord.setField(targetField, value);
             }
@@ -162,15 +162,15 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                     continue;
                 }
                 Object value = null;
-                Object fielValue = (String) sourcePairObj.getSourceSObject().getField(field);
+                Object fielValue = sourcePairObj.getSourceSObject().getField(field);
                 if (fielValue != null) {
-                    if (maskedFieldsSet != null && maskedFieldsSet.contains(field)) {
-                        fielValue = masker.mask(fielValue);
-                    }
                     if(fielValue instanceof com.sforce.ws.bind.XmlObjectWrapper) {
                     	continue;
                     }
-                    value = deserialize(fielValue, fieldToTypeMap.get(field));
+                    if (maskedFieldsSet != null && maskedFieldsSet.contains(field)) {
+                        fielValue = masker.mask((String)fielValue);
+                    }
+                    value = deserialize((String)fielValue, fieldToTypeMap.get(field));
                 }
                 insertRecord.setField(field, value);
             }
