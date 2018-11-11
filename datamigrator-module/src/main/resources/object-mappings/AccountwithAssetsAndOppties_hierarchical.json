@@ -1,7 +1,7 @@
 [
   {
     "parent": "Account",
-    "ExternalId__cField": "ExternalId__c__c",
+    "ExternalIdField": "ExternalId__c__c",
     "where": " ExternalId__c != null",
     "refresh": true,
     "unmappedFields": [
@@ -14,7 +14,7 @@
       {
         "parentMappedField": "AccountId",
         "childObject": "Opportunity",
-        "ExternalId__cField": "ExternalId__c",
+        "ExternalIdField": "ExternalId__c",
         "where": " ExternalId__c != null",
         "unmappedFields": [
           "IsClosed",
@@ -32,7 +32,7 @@
       {
         "parentMappedField": "AccountId",
         "childObject": "Asset",
-        "ExternalId__cField": "ExternalId__c",
+        "ExternalIdField": "ExternalId__c",
         "where": " ExternalId__c != null",
         "sequence": 2
       }
