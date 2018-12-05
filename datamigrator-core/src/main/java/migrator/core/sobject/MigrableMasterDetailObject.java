@@ -32,9 +32,12 @@ import java.util.Map;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Set;
+
 import org.apache.log4j.Logger;
+
 import com.sforce.soap.partner.FieldType;
 import com.sforce.soap.partner.sobject.SObject;
+
 import migrator.core.service.MetadataObjectHolder;
 import migrator.core.service.SforceLookupProperties;
 import migrator.core.service.SforceMasterDetail;
@@ -143,8 +146,13 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                     	continue;
                     }
                     value = deserialize((String)fielValue, fieldToTypeMap.get(sourceField));
+                    insertRecord.setField(targetField, value);
+                } else {
+                	// If externalIdField is on mapping but null in source, then use id from source as externalId value
+                	if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(sourceField)) {
+                		insertRecord.setField(targetField, (String)sourcePairObj.getSourceSObject().getField("Id"));
+                	}
                 }
-                insertRecord.setField(targetField, value);
             }
         } else {
             for (String field : fields) {
@@ -163,7 +171,8 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                 }
                 Object value = null;
                 Object fielValue = sourcePairObj.getSourceSObject().getField(field);
-                if (fielValue != null) {
+
+                if (fielValue != null && !fielValue.equals("")) {
                     if(fielValue instanceof com.sforce.ws.bind.XmlObjectWrapper) {
                     	continue;
                     }
@@ -171,8 +180,13 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                         fielValue = masker.mask((String)fielValue);
                     }
                     value = deserialize((String)fielValue, fieldToTypeMap.get(field));
-                }
-                insertRecord.setField(field, value);
+                    insertRecord.setField(field, value);
+	            } else {
+	            	// If externalIdField is on mapping but null in source, then use id from source as externalId value
+	            	if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(field)) {
+	            		insertRecord.setField(field, (String)sourcePairObj.getSourceSObject().getField("Id"));
+	            	}
+	            }
             }
         }
 
