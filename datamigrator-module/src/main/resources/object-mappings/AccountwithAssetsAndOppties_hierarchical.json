@@ -1,8 +1,13 @@
 [
   {
     "parent": "Account",
+<<<<<<< HEAD
     "ExternalIdField": "blng__ExternalKey__c",
     "where": " blng__ExternalKey__c != null",
+=======
+    "ExternalIdField": "ExternalId__c__c",
+    "where": " ExternalId__c != null",
+>>>>>>> 590e9067edf258885abd5bebd3503d611d3934fa
     "refresh": true,
     "unmappedFields": [
       "PhotoUrl",
@@ -14,8 +19,13 @@
       {
         "parentMappedField": "AccountId",
         "childObject": "Opportunity",
+<<<<<<< HEAD
         "ExternalIdField": "blng__ExternalKey__c",
         "where": " blng__ExternalKey__c != null",
+=======
+        "ExternalIdField": "ExternalId__c",
+        "where": " ExternalId__c != null",
+>>>>>>> 590e9067edf258885abd5bebd3503d611d3934fa
         "unmappedFields": [
           "IsClosed",
           "IsWon",
@@ -32,8 +42,13 @@
       {
         "parentMappedField": "AccountId",
         "childObject": "Asset",
+<<<<<<< HEAD
         "ExternalIdField": "blng__ExternalKey__c",
         "where": " blng__ExternalKey__c != null",
+=======
+        "ExternalIdField": "ExternalId__c",
+        "where": " ExternalId__c != null",
+>>>>>>> 590e9067edf258885abd5bebd3503d611d3934fa
         "sequence": 2
       }
     ],
