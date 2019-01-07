@@ -81,12 +81,12 @@
 		<dependency>
 			<groupId>com.force.api</groupId>
 			<artifactId>force-wsc</artifactId>
-			<version>41.0.0</version>
+			<version>44.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.force.api</groupId>
 			<artifactId>force-partner-api</artifactId>
-			<version>41.0.0</version>
+			<version>44.0.0</version>
 		</dependency>
 
 	</dependencies>

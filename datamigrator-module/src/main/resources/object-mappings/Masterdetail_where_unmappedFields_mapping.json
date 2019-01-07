@@ -9,7 +9,7 @@
         "childObject": "PricebookEntry",
         "where": " Pricebook2.IsActive=true And Pricebook2Id != null And Product2Id != null ",
         "sequence": 1,
-		"unmappedFields": ["ProductCode", "Name"],
+		    "unmappedFields": ["ProductCode", "Name"],
         "lookups": [
           {
             "lookupMappedField": "Product2Id",

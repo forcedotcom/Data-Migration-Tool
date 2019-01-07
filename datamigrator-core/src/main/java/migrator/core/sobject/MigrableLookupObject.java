@@ -403,8 +403,13 @@ public class MigrableLookupObject extends MigrableObject {
                     	continue;
                     }
                     value = deserialize((String)fielValue, fieldToTypeMap.get(sourceField));
+                    insertRecord.setField(targetField, value);
+                } else {
+                	// If externalIdField is on mapping but null in source, then use id from source as externalId value
+                	if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(sourceField)) {
+                		insertRecord.setField(targetField, (String)sourcePairObj.getSourceSObject().getField("Id"));
+                	}
                 }
-                insertRecord.setField(targetField, value);
             }
         } else {
             for (String field : fields) {
@@ -423,7 +428,7 @@ public class MigrableLookupObject extends MigrableObject {
 
                 Object value = null;
                 Object fielValue = sourcePairObj.getSourceSObject().getField(field);
-                if (fielValue != null) {
+                if (fielValue != null && !fielValue.equals("")) {
                     if(fielValue instanceof com.sforce.ws.bind.XmlObjectWrapper) {
                     	continue;
                     }
@@ -431,8 +436,13 @@ public class MigrableLookupObject extends MigrableObject {
                         fielValue = masker.mask((String)fielValue);
                     }
                     value = deserialize((String)fielValue, fieldToTypeMap.get(field));
+                    insertRecord.setField(field, value);
+                } else {
+                	// If externalIdField is on mapping but null in source, then use id from source as externalId value
+                	if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(field)) {
+                		insertRecord.setField(field, (String)sourcePairObj.getSourceSObject().getField("Id"));
+                	}
                 }
-                insertRecord.setField(field, value);
             }
         }
         // Handle lookups
@@ -449,7 +459,6 @@ public class MigrableLookupObject extends MigrableObject {
             for (SforceLookupProperties loopProperty : lookupList) {
                 String lookObjectName = loopProperty.getsLookupSObjectName();
                 String lookupField = loopProperty.getsLookupField();
-
                 String lookupTargetId = getLookupTargetId(loopProperty, sforceObject, sourceRecord);
                 if (lookupTargetId != null) {
                     insertRecord.setField(lookupField, lookupTargetId);
