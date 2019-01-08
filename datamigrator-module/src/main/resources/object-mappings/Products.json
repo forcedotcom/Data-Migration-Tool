@@ -1,6 +1,6 @@
 [
   {
     "parent": "Product2",
-    "externalIdField": "blng__ExternalKey__c"
+    "externalIdField": "ExternalKey__c"
   }
 ]

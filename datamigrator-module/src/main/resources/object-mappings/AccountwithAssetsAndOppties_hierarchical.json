@@ -1,13 +1,8 @@
 [
   {
     "parent": "Account",
-<<<<<<< HEAD
-    "ExternalIdField": "blng__ExternalKey__c",
-    "where": " blng__ExternalKey__c != null",
-=======
-    "ExternalIdField": "ExternalId__c__c",
-    "where": " ExternalId__c != null",
->>>>>>> 590e9067edf258885abd5bebd3503d611d3934fa
+    "ExternalIdField": "ExternalKey__c",
+    "where": " ExternalKey__c != null",
     "refresh": true,
     "unmappedFields": [
       "PhotoUrl",
@@ -19,13 +14,8 @@
       {
         "parentMappedField": "AccountId",
         "childObject": "Opportunity",
-<<<<<<< HEAD
-        "ExternalIdField": "blng__ExternalKey__c",
-        "where": " blng__ExternalKey__c != null",
-=======
-        "ExternalIdField": "ExternalId__c",
-        "where": " ExternalId__c != null",
->>>>>>> 590e9067edf258885abd5bebd3503d611d3934fa
+        "ExternalIdField": "ExternalKey__c",
+        "where": " ExternalKey__c != null",
         "unmappedFields": [
           "IsClosed",
           "IsWon",
@@ -42,13 +32,8 @@
       {
         "parentMappedField": "AccountId",
         "childObject": "Asset",
-<<<<<<< HEAD
-        "ExternalIdField": "blng__ExternalKey__c",
-        "where": " blng__ExternalKey__c != null",
-=======
-        "ExternalIdField": "ExternalId__c",
-        "where": " ExternalId__c != null",
->>>>>>> 590e9067edf258885abd5bebd3503d611d3934fa
+        "ExternalIdField": "ExternalKey__c",
+        "where": " ExternalKey__c != null",
         "sequence": 2
       }
     ],
@@ -56,10 +41,10 @@
       {
         "lookupMappedField": "ParentId",
         "lookupObject": "Account",
-        "where": " blng__ExternalKey__c != null",
+        "where": " ExternalKey__c != null",
         "keys": [
           "Name",
-          "blng__ExternalKey__c"
+          "ExternalKey__c"
         ]
       }
     ]

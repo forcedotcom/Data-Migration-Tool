@@ -33,7 +33,9 @@ package migrator.module.client;
 import migrator.core.service.impl.SfdcSerializerService;
 
 /**
- * Main class to serialize the data into JSON
+ * Main class to serialize the data into JSON.
+ * 1. Make sure to set the source.type=org to download data in .json
+ * 2. Make sure to set the source.type=json to migrate from .json to target org
  *
  * @author anoop.singh
  */

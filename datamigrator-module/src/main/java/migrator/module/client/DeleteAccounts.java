@@ -37,23 +37,23 @@ import migrator.core.sobject.MigrableObjectFactory;
 import migrator.core.utils.CommandVO;
 
 /**
- * Main class to kick-off migrations of hierarchical objects
+ * Main class to delete accounts/assets and opportunities from target org
  *
  * @author anoop.singh
  */
-public class MigrateHierarchical {
+public class DeleteAccounts {
 
 	public void process() {
 
 	   List<CommandVO> list = new ArrayList<CommandVO>();
 
-	   list.add(new CommandVO("create", "Hierarchical_mapping.json"));
+	   list.add(new CommandVO("delete", "AccountwithAssetsAndOppties.json"));
 
 	   MigrableObjectFactory.migrate(list);
 	}
 
    	static public void main(String[] args) {
-   		MigrateHierarchical migrate = new MigrateHierarchical();
+   		DeleteAccounts migrate = new DeleteAccounts();
    		migrate.process();
 	}
 }

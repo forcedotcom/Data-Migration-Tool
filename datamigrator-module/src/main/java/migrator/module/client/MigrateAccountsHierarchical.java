@@ -38,6 +38,7 @@ import migrator.core.utils.CommandVO;
 
 /**
  * Main class to kick-off migrations of accounts/assets and opportunities using external ids
+ * Make sure to set "ExternalIdField" field in json mapping file.
  *
  * @author anoop.singh
  */
