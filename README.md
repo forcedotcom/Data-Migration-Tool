@@ -4,7 +4,7 @@
 
 Migrating data between orgs can be a daunting ask, this is specially true if you have a complex data model in the form of parent-child, hierarchical, lookups, record types etc relationships.
 
-Doing so manually is error prone, time consuming, frustrating and not an ideal approach. We wrote a Java based tool using Salesforce SOAP to migrate the data from one Salesforce Org to another Salesforce Org. Data-Migration-Tool tool lets you migrate the data from one Salesforce Org to another Salesforce Org.
+Doing so manually is error prone, time consuming, frustrating and not an ideal approach. We wrote a Java based tool using Salesforce SOAP to migrate the data from one Salesforce Org to another Salesforce Org. Data-Migration-Tool tool lets you migrate the data from one Salesforce Org to another Salesforce Org. This is a standalone java tool that one can run from a local machine. 
 
 ## Build Data Migrator
 
@@ -36,10 +36,10 @@ After opening the project in Eclipse, you will see below two modules:
 
 Tool comes with many main classes as a way to show different kind of mappings and migrations:
 
-* Main Class: `migrator.module.client.Migrate`
 * Main Class: `migrator.module.client.MigrateProducts`
 * Main Class: `migrator.module.client.MigrateAll`
-* Main Class: `migrator.module.client.MigrateMasterDetail`
+* Main Class: `migrator.module.client.MigrateAccounts`
+* Main Class: `migrator.module.client.MigrateAccountsHierarchical`
 
 and many more...
 
@@ -50,21 +50,17 @@ Migrate a simple object's records (no relationships)
 
 	Edit the object-mappings/Products.json with your object API name, save
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.Migrate" -pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateOnlyProducts" -pl datamigrator-module
 
-Migrate object's with masterdetail relationships
+Migrate object's with masterdetail (Accounts/Assets/Oppties) relationships
 
-	Edit the object-mappings/Masterdetail_mapping.json with your object API names, save
+	Edit the object-mappings/AccountwithAssetsAndOppties.json with your object API names, save
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateMasterDetail" -pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccounts" -pl datamigrator-module
 
 Migrate object's with hierarchical relationships
 
-	Edit the object-mappings/Hierarchical_mapping.json with your object API names, save
-
-	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateHierarchical" -pl datamigrator-module
-
-OR
+	Edit the object-mappings/AccountwithAssetsAndOppties_hierarchical.json with your object API names, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccountsHierarchical" -pl datamigrator-module
 
@@ -89,7 +85,7 @@ Delete a simple object's records
 
 	Edit the object-mappings/Products.json with your object API name, save
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.Delete" -pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.DeleteProducts" -pl datamigrator-module
 
 Delete multiple object's records in a single run
 
