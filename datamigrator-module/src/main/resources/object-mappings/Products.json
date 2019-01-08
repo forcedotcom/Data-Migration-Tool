@@ -1,6 +1,5 @@
 [
   {
-    "parent": "Product2",
-    "externalIdField": "ExternalKey__c"
+    "parent": "Product2"
   }
 ]

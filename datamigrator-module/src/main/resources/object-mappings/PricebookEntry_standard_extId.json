@@ -2,6 +2,7 @@
   {
     "parent": "PricebookEntry",
     "where": " IsActive = true And Pricebook2.IsStandard = true AND Pricebook2Id != null ",
+    "externalIdField": "ExternalKey__c",
     "unmappedFields": ["ProductCode", "Name"],
     "lookups": [
       {
