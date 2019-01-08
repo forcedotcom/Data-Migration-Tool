@@ -45,12 +45,25 @@ and many more...
 
 
 ## Running using command line (More Sample Migrations...)
+To avoid creating duplicates in the target org, use external ids. This section has some examples using external ids.
 
 Migrate a simple object's records (no relationships)
 
 	Edit the object-mappings/Products.json with your object API name, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateOnlyProducts" -pl datamigrator-module
+
+Migrate an object with lookups (Pricebook2 with lookup to Product) relationship
+
+	Edit the object-mappings/Products.json, PricebookEntry_nonstandard.json, PricebookEntry_standard.json with your object API name, save. 
+
+	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateProducts" -pl datamigrator-module
+
+Migrate an object with lookups (Pricebook2 with lookup to Product) relationship with External Ids
+
+	Edit the object-mappings/Products_extId.json, PricebookEntry_nonstandard_extId.json, PricebookEntry_standard_extId.json with your object API name, save. 
+
+	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateProductsWithExternalId" -pl datamigrator-module
 
 Migrate object's with masterdetail (Accounts/Assets/Oppties) relationships
 
@@ -63,7 +76,6 @@ Migrate object's with hierarchical relationships
 	Edit the object-mappings/AccountwithAssetsAndOppties_hierarchical.json with your object API names, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccountsHierarchical" -pl datamigrator-module
-
 
 Migrate multiple object's in a single run
 
