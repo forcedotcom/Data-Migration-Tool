@@ -45,7 +45,7 @@ and many more...
 
 
 ## Running using command line (More Sample Migrations...)
-To avoid creating duplicates in the target org, use external ids. This section has some examples using external ids.
+To avoid creating duplicates in the target org, use [external ids](https://github.com/forcedotcom/Data-Migration-Tool/wiki/External-Id). This section has some examples using external ids.
 
 Migrate a simple object's records (no relationships)
 
