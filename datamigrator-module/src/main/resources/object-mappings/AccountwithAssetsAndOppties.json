@@ -7,7 +7,7 @@
       "IsCustomerPortal",
       "IsPersonAccount"
     ],
-    "childs": [
+    "children": [
       {
         "parentMappedField": "AccountId",
         "childObject": "Opportunity",
@@ -27,7 +27,16 @@
       {
         "parentMappedField": "AccountId",
         "childObject": "Asset",
-        "sequence": 2
+        "sequence": 2,
+        "lookups": [
+          {
+            "lookupMappedField": "Product2Id",
+            "lookupObject": "Product2",
+            "keys": [
+              "Name"
+            ]
+          }
+        ]         
       }
     ],
     "lookups": [

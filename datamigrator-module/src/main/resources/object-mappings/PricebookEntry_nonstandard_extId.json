@@ -4,7 +4,7 @@
     "where": " IsStandard = false ",
     "unmappedFields": ["IsStandard", "IsArchived"],
     "externalIdField": "ExternalKey__c",
-    "childs": [
+    "children": [
       {
         "parentMappedField": "Pricebook2Id",
         "childObject": "PricebookEntry",

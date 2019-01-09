@@ -223,11 +223,11 @@ public class ObjectMappingConfig {
 
         // Read children in a map structure
         private void readChilds(JSONObject jsonObj, String sObjectName) throws Exception {
-            Boolean hasChilds = jsonObj.has("childs");
+            Boolean hasChilds = jsonObj.has("children");
             if (hasChilds) {
                 setRelationType(Migrable.RelationType.MASTERDETAIL);
 
-                JSONArray jChildArray = (JSONArray) jsonObj.get("childs");
+                JSONArray jChildArray = (JSONArray) jsonObj.get("children");
                 for (int index2 = 0; index2 < jChildArray.length(); index2++) {
                     JSONObject jsonChildObj = jChildArray.getJSONObject(index2);
 
@@ -331,7 +331,7 @@ public class ObjectMappingConfig {
                     // The child might have lookups as well, handle it
                     readLookups(jsonChildObj, childObject);
 
-                    hasChilds = jsonChildObj.has("childs");
+                    hasChilds = jsonChildObj.has("children");
                     if (hasChilds) {
                         readChilds(jsonChildObj, childObject);
                     }

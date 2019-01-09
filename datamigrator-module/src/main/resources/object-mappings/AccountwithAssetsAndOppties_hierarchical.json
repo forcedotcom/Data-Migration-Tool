@@ -10,7 +10,7 @@
       "IsCustomerPortal",
       "IsPersonAccount"
     ],
-    "childs": [
+    "children": [
       {
         "parentMappedField": "AccountId",
         "childObject": "Opportunity",

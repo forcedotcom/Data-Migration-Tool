@@ -3,7 +3,7 @@
     "parent": "Pricebook2",
     "where": " IsStandard = false ",
     "unmappedFields": ["IsStandard", "IsArchived"],
-    "childs": [
+    "children": [
       {
         "parentMappedField": "Pricebook2Id",
         "childObject": "PricebookEntry",
