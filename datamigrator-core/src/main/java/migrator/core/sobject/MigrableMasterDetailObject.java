@@ -27,6 +27,7 @@ package migrator.core.sobject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Collections;
@@ -132,6 +133,11 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
 
         List<String> fields = descRefObj.getPrimitiveFieldList();
         Map<String, String> fieldMapping = sforceObject.getFieldsMapping();
+        Set<String> createableFieldSet  = new HashSet<String>();
+        
+        if (sforceObject.getExternalIdField() == null || sforceObject.getExternalIdField().equals("")) {
+    			createableFieldSet = descRefObj.getCreateableFieldSet();
+        }
 
         if (fieldMapping != null && fieldMapping.size() > 0) {
             for (Map.Entry<String, String> entry : fieldMapping.entrySet()) {
@@ -149,9 +155,9 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                     insertRecord.setField(targetField, value);
                 } else {
                 	// If externalIdField is on mapping but null in source, then use id from source as externalId value
-                	if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(sourceField)) {
-                		insertRecord.setField(targetField, (String)sourcePairObj.getSourceSObject().getField("Id"));
-                	}
+                		if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(sourceField)) {
+                			insertRecord.setField(targetField, (String)sourcePairObj.getSourceSObject().getField("Id"));
+                		}
                 }
             }
         } else {
@@ -169,6 +175,10 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                             + " field definition not matching in source/target orgs!");
                     continue;
                 }
+                if(!createableFieldSet.contains(field)) {
+            			continue;
+                }   
+                
                 Object value = null;
                 Object fielValue = sourcePairObj.getSourceSObject().getField(field);
 

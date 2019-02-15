@@ -28,6 +28,7 @@ package migrator.core.sobject;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -111,6 +112,7 @@ public class MigrableLookupObject extends MigrableObject {
                     sForceObj.getsObjectName());
             Set<String> commonFields = compare.findCommonFields(sForceObj.getsObjectName());
             sForceObj.setDescRefObject(MetadataObjectHolder.getInstance().get(sForceObj.getsObjectName()));
+            System.out.println("commonFields ---->" + commonFields);
             sForceObj.setCommonFields(commonFields);
         }
 
@@ -389,7 +391,11 @@ public class MigrableLookupObject extends MigrableObject {
 
         List<String> fields = descRefObj.getPrimitiveFieldList();
         Map<String, String> fieldMapping = sforceObject.getFieldsMapping();
-
+        Set<String> createableFieldSet  = new HashSet<String>();
+        
+        if (sforceObject.getExternalIdField() == null || sforceObject.getExternalIdField().equals("")) {
+        		createableFieldSet = descRefObj.getCreateableFieldSet();
+        }
         if (fieldMapping != null && fieldMapping.size() > 0) {
             for (Map.Entry<String, String> entry : fieldMapping.entrySet()) {
                 String sourceField = entry.getKey();
@@ -400,15 +406,15 @@ public class MigrableLookupObject extends MigrableObject {
                 Object fielValue = sourcePairObj.getSourceSObject().getField(sourceField);
                 if (fielValue != null) {
                     if(fielValue instanceof com.sforce.ws.bind.XmlObjectWrapper) {
-                    	continue;
+                    		continue;
                     }
                     value = deserialize((String)fielValue, fieldToTypeMap.get(sourceField));
                     insertRecord.setField(targetField, value);
                 } else {
                 	// If externalIdField is on mapping but null in source, then use id from source as externalId value
-                	if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(sourceField)) {
-                		insertRecord.setField(targetField, (String)sourcePairObj.getSourceSObject().getField("Id"));
-                	}
+                		if (sforceObject.getExternalIdField() != null && sforceObject.getExternalIdField().equalsIgnoreCase(sourceField)) {
+                			insertRecord.setField(targetField, (String)sourcePairObj.getSourceSObject().getField("Id"));
+                		}
                 }
             }
         } else {
@@ -425,7 +431,10 @@ public class MigrableLookupObject extends MigrableObject {
                             + " field definition not matching in source/target orgs!");
                     continue;
                 }
-
+                if(!createableFieldSet.contains(field)) {
+                		continue;
+                }
+                
                 Object value = null;
                 Object fielValue = sourcePairObj.getSourceSObject().getField(field);
                 if (fielValue != null && !fielValue.equals("")) {

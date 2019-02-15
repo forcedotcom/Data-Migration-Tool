@@ -83,11 +83,9 @@ public class MetadataObjectHolder {
     public MetadataRefObject init(SfdcConnection.ORG_TYPE orgType, SfdcConnection connection, String sObjectAPIName,
             List<String> migrableObjects) {
         MetadataRefObject describeRefObject = holder.get(sObjectAPIName);
-        if (describeRefObject == null) {
-            describeRefObject =
-                    new MetadataServiceImpl(connection).process(orgType, sObjectAPIName, true, migrableObjects);
-            describeObjectMap.put(sObjectAPIName, describeRefObject);
-        }
+        describeRefObject =
+                new MetadataServiceImpl(connection).process(orgType, sObjectAPIName, true, migrableObjects);
+        describeObjectMap.put(sObjectAPIName, describeRefObject);
         return describeRefObject;
     }
 
