@@ -112,7 +112,6 @@ public class MigrableLookupObject extends MigrableObject {
                     sForceObj.getsObjectName());
             Set<String> commonFields = compare.findCommonFields(sForceObj.getsObjectName());
             sForceObj.setDescRefObject(MetadataObjectHolder.getInstance().get(sForceObj.getsObjectName()));
-            System.out.println("commonFields ---->" + commonFields);
             sForceObj.setCommonFields(commonFields);
         }
 
