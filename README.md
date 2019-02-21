@@ -1,6 +1,6 @@
 # Data-Migration-Tool (Datafall)
 
-*Data-Migration-Tool* is a tool that migrates the data from one Salesforce Org to another Salesforce Org.
+*Data-Migration-Tool (Datafall)* is a tool that migrates the data from one Salesforce Org to another Salesforce Org.
 
 Migrating data between orgs can be a daunting ask, this is specially true if you have a complex data model in the form of parent-child, hierarchical, lookups, record types etc relationships.
 
