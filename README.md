@@ -19,7 +19,7 @@ Doing so manually is error prone, time consuming, frustrating and not an ideal a
 
 #### Usage: Migrate Products, Pricebooks and PricebookEntries Sample
 
-	Enter Source and Target org credentials in *build.properties*
+	# Enter Source and Target org credentials in `/datamigrator-module/src/main/resources/build.properties`
 	mvn clean install
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateProducts" -pl datamigrator-module
 
