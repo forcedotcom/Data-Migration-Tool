@@ -89,7 +89,7 @@ Migrate Accounts with Opportunities and Assets. Make sure you edit the JSON with
 
 	# Edit the object-mappings/AccountwithAssetsAndOppties_hierarchical.json with your object's external Id API name, save
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccountsHierarchical" pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccountsHierarchical" -pl datamigrator-module
 
 
 ## Usage (Sample Deletions from Target Org)
