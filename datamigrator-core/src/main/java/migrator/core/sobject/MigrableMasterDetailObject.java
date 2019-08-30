@@ -175,7 +175,7 @@ public class MigrableMasterDetailObject extends MigrableLookupObject {
                             + " field definition not matching in source/target orgs!");
                     continue;
                 }
-                if(!createableFieldSet.contains(field)) {
+                if(!createableFieldSet.isEmpty() && !createableFieldSet.contains(field)) {
             			continue;
                 }   
                 

@@ -15,11 +15,12 @@ Doing so manually is error prone, time consuming, frustrating and not an ideal a
 
 #### Build
     git clone git@github.com:forcedotcom/Data-Migration-Tool.git
+	cd Data-Migration-Tool
 	mvn clean install
 
 #### Usage: Migrate Products, Pricebooks and PricebookEntries Sample
 
-	Enter Source and Target org credentials in *build.properties*
+	# Enter Source and Target org credentials in `/datamigrator-module/src/main/resources/build.properties`
 	mvn clean install
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateProducts" -pl datamigrator-module
 
@@ -49,59 +50,59 @@ To avoid creating duplicates in the target org, use [external ids](https://githu
 
 Migrate a simple object's records (no relationships)
 
-	Edit the object-mappings/Products.json with your object API name, save
+	# Edit the object-mappings/Products.json with your object API name, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateOnlyProducts" -pl datamigrator-module
 
 Migrate an object with lookups (Pricebook2 with lookup to Product) relationship
 
-	Edit the object-mappings/Products.json, PricebookEntry_nonstandard.json, PricebookEntry_standard.json with your object API name, save. 
+	# Edit the object-mappings/Products.json, PricebookEntry_nonstandard.json, PricebookEntry_standard.json with your object API name, save.
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateProducts" -pl datamigrator-module
 
 Migrate an object with lookups (Pricebook2 with lookup to Product) relationship with External Ids
 
-	Edit the object-mappings/Products_extId.json, PricebookEntry_nonstandard_extId.json, PricebookEntry_standard_extId.json with your object API name, save. 
+	# Edit the object-mappings/Products_extId.json, PricebookEntry_nonstandard_extId.json, PricebookEntry_standard_extId.json with your object API name, save.
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateProductsWithExternalId" -pl datamigrator-module
 
 Migrate object's with masterdetail (Accounts/Assets/Oppties) relationships
 
-	Edit the object-mappings/AccountwithAssetsAndOppties.json with your object API names, save
+	# Edit the object-mappings/AccountwithAssetsAndOppties.json with your object API names, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccounts" -pl datamigrator-module
 
 Migrate object's with hierarchical relationships
 
-	Edit the object-mappings/AccountwithAssetsAndOppties_hierarchical.json with your object API names, save
+	# Edit the object-mappings/AccountwithAssetsAndOppties_hierarchical.json with your object API names, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccountsHierarchical" -pl datamigrator-module
 
 Migrate multiple object's in a single run
 
-	Edit the object-mappings as referenced in MigrateAll.java with your object API names, save
+	# Edit the object-mappings as referenced in MigrateAll.java with your object API names, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAll" -pl
 	datamigrator-module
 
 Migrate Accounts with Opportunities and Assets. Make sure you edit the JSON with your external ids from Accounts with Opportunities and Assets objects.
 
-	Edit the object-mappings/AccountwithAssetsAndOppties_hierarchical.json with your object's external Id API name, save
+	# Edit the object-mappings/AccountwithAssetsAndOppties_hierarchical.json with your object's external Id API name, save
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccountsHierarchical" pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.MigrateAccountsHierarchical" -pl datamigrator-module
 
 
 ## Usage (Sample Deletions from Target Org)
 
 Delete a simple object's records
 
-	Edit the object-mappings/Products.json with your object API name, save
+	# Edit the object-mappings/Products.json with your object API name, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.DeleteProducts" -pl datamigrator-module
 
 Delete multiple object's records in a single run
 
-	Edit the object-mappings as referenced in DeleteAll.java with your object API names, save
+	# Edit the object-mappings as referenced in DeleteAll.java with your object API names, save
 
 	mvn exec:java -Dexec.mainClass="migrator.module.client.DeleteAll" -pl datamigrator-module
 
