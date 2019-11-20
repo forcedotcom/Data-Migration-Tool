@@ -111,19 +111,19 @@ Delete multiple object's records in a single run
 
 Compare objects Metadata in source and target org
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.MetadataCompareExample" object1,object2 -pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.MetadataCompareExample" -Dexec.args="object1,object2" -pl datamigrator-module
 
 ## Usage (Given a set of objects, create a JSON mapping structure)
 
 Given a set of objects, create a JSON mapping structure
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.GenerateMappingExample" object1,object2 -pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.GenerateMappingExample" -Dexec.args="object1,object2" -pl datamigrator-module
 
 ## Usage (Counts the number of records in source and target org)
 
 Once migration has completed, you may want to compare the number of records in source and target org
 
-	mvn exec:java -Dexec.mainClass="migrator.module.client.ValidateExample" object1,object2 -pl datamigrator-module
+	mvn exec:java -Dexec.mainClass="migrator.module.client.ValidateExample" -Dexec.args="object1,object2" -pl datamigrator-module
 
 
 # More Advanced Object Relationship JSON Mappings, Resources
